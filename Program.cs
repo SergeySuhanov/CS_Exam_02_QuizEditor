@@ -121,8 +121,26 @@ namespace CS_Exam_02_QuizEditor
                 Editor editor = new Editor();
 
                 Console.WriteLine("Редактор вопросов");
+
+                string inputName;
+                string inputPass;
+                Console.WriteLine("Вход в систему\n");
+                do
+                {
+                    Console.Write("Введите логин: ");
+                    inputName = Console.ReadLine();
+                } while (inputName != "Admin");
+
+                do
+                {
+                    Console.Write("Введите пароль: ");
+                    inputPass = Console.ReadLine();
+                } while (inputPass != "Admin");
+                Console.Write("Осуществлён вход.");
+                Console.ReadLine();
+
                 Console.WriteLine("1 - Создать новый вопрос");
-                Console.WriteLine("2 - Изменить существующий");
+                //Console.WriteLine("2 - Изменить существующий");
                 int editChoice = Int32.Parse(Console.ReadLine());
 
                 switch (editChoice)
@@ -133,7 +151,7 @@ namespace CS_Exam_02_QuizEditor
                         Random rnd = new Random();
                         int randomNum = rnd.Next(1, 10000);
                         string s = String.Format("{0:D4}", randomNum);
-                        Console.WriteLine($"s is {s}");
+                        
                         while (editor.CheckFreeQID(s) != -1)
                         {
                             randomNum = rnd.Next(1, 10000);
